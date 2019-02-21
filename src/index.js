@@ -4,4 +4,20 @@
  */
 module.exports = function getLoveTrianglesCount(preferences = []) {
   // your implementation
+  let cash = preferences;
+  let count = 0;
+  let length = cash.length;
+  for (let i = 0; i<length; i++) {
+      let k = cash[i] - 1;
+      if (k == i) continue;
+      let n = cash[k] - 1;
+      if (k == n) continue;
+      let m = cash[n] - 1;
+      if (m == n) continue;
+      if (m == i) {
+          count++;
+		  cash[i] = null;
+      }
+   }
+  return count;
 };
